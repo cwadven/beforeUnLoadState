@@ -4,7 +4,11 @@ How To Use **beforeUnLoadState**!
 
 `beforeUnLoadState([[val, setState], [val, setState], ...]);`
 
-### example
+### Example
+
+![](https://github.com/cwadven/react-beforeunload-state/blob/master/image/beforeUnLoadState.gif?raw=true)
+
+Link : [https://n54nv.csb.app/](https://n54nv.csb.app/ "https://n54nv.csb.app/")
 
 ```Javascript
 import React, { useEffect, useState } from "react";
