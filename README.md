@@ -6,7 +6,7 @@ How To Use **beforeUnLoadState**!
 
 ### Example
 
-![](https://github.com/cwadven/react-beforeunload-state/blob/master/image/beforeUnLoadState.gif?raw=true)
+![](https://i.ibb.co/gzk88Q6/before-Un-Load-State.gif)
 
 Link : [https://n54nv.csb.app/](https://n54nv.csb.app/ "https://n54nv.csb.app/")
 
