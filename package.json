@@ -1,0 +1,26 @@
+{
+  "name": "react-beforeunload-state",
+  "version": "1.0.4",
+  "description": "React Hook to prevent leave window if state is different with setting value",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwadven/beforeUnLoadState.git"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "beforeunload",
+    "prevent leave"
+  ],
+  "author": "Lee Chang Woo <cwadven@naver.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cwadven/beforeUnLoadState/issues"
+  },
+  "homepage": "https://github.com/cwadven/beforeUnLoadState#readme",
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
