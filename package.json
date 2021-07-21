@@ -1,6 +1,6 @@
 {
   "name": "react-beforeunload-state",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React Hook to prevent leave window if state is different with setting value",
   "main": "index.js",
   "repository": {
