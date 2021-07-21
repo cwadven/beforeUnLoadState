@@ -2,7 +2,7 @@ How To Use **beforeUnLoadState**!
 
 ### Structure
 
-`beforeUnLoadState([[val, setState], [val, setState], ...]);`
+`beforeUnLoadState([[curValue, prevValue], [curValue, prevValue], ...]);`
 
 ### Example
 
@@ -13,25 +13,24 @@ import React, { useState } from "react";
 import { beforeUnLoadState } from "react-beforeunload-state";
 
 export default function App(props) {
-  const [email, setEmail] = useState("");
-  const [email2, setEmail2] = useState("");
+  const [til, setTil] = useState("");
+  const [msg, setMsg] = useState("");
 
   // Structure : [[curValue, prevValue], [curValue, prevValue], [curValue, prevValue], ....]
-  usePreventLeave([
-    [email, email],
-    // why I used email becasuse it doesnt change it has previous value
-    [email2, email2]
+  beforeUnLoadState([
+    [til, til],
+    [msg, msg]
   ]);
 
   return (
     <div className="App">
       <div>
         <p>TIL(Today I Learned)</p>
-        <input value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input value={til} onChange={(e) => setTil(e.target.value)} />
       </div>
       <div>
         <p>Message Send</p>
-        <input value={email2} onChange={(e) => setEmail2(e.target.value)} />
+        <input value={msg} onChange={(e) => setMsg(e.target.value)} />
       </div>
     </div>
   );
