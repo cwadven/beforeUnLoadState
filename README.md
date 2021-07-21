@@ -6,40 +6,36 @@ How To Use **beforeUnLoadState**!
 
 ### Example
 
-![](https://i.ibb.co/gzk88Q6/before-Un-Load-State.gif)
-
 Link : [https://n54nv.csb.app/](https://n54nv.csb.app/ "https://n54nv.csb.app/")
 
 ```Javascript
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { beforeUnLoadState } from "react-beforeunload-state";
 
-export default function App() {
-  const [til, setTil] = useState("123");
-  const [msg, setMsg] = useState("");
+export default function App(props) {
+  const [email, setEmail] = useState("");
+  const [email2, setEmail2] = useState("");
 
-  // Structure : [[val, setState], [val, setState], [val, setState], ....]
-  // each array items -> [value, stateValue -> need to send setting function]
-  // More Detail
-  // [to check if different with state, to check state value at setState]
-  beforeUnLoadState([
-    ["123", setTil],
+  // Structure : [[curValue, prevValue], [curValue, prevValue], [curValue, prevValue], ....]
+  usePreventLeave([
+    [email, email],
     // why I used email becasuse it doesnt change it has previous value
-    [msg, setMsg]
+    [email2, email2]
   ]);
 
   return (
     <div className="App">
       <div>
         <p>TIL(Today I Learned)</p>
-        <input value={til} onChange={(e) => setTil(e.target.value)} />
+        <input value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div>
         <p>Message Send</p>
-        <input value={msg} onChange={(e) => setMsg(e.target.value)} />
+        <input value={email2} onChange={(e) => setEmail2(e.target.value)} />
       </div>
     </div>
   );
 }
+
 
 ```
