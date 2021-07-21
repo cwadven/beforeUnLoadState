@@ -1,31 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-export const beforeUnLoadState = (array) => {
+export const usePreventLeave = (array) => {
   // exception handling
   if (!Array.isArray(array)) {
     return;
   }
 
-  const listener = (event) => {
-    let is_changed = array.some(([prevValue, setState]) => {
-      let state;
-      setState((prevState) => {
-        state = prevState;
-        return prevState;
-      });
-      return state !== prevValue;
-    });
-
-    if (is_changed) {
-      event.preventDefault();
-      event.returnValue = "";
-    }
-  };
+  const listener = useRef();
 
   useEffect(() => {
-    window.addEventListener("beforeunload", listener);
+    listener.current = (event) => {
+      let is_changed = array.some(([prevValue, curValue]) => {
+        return curValue !== prevValue;
+      });
+
+      if (is_changed) {
+        event.preventDefault();
+        event.returnValue = "";
+      }
+    };
+  }, [array]);
+
+  useEffect(() => {
+    const eventListener = (event) => {
+      listener.current(event);
+    };
+    window.addEventListener("beforeunload", eventListener);
     return () => {
-      window.removeEventListener("beforeunload", listener);
+      window.removeEventListener("beforeunload", eventListener);
     };
   }, []);
 };
