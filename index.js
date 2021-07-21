@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export const usePreventLeave = (array) => {
+export const beforeUnLoadState = (array) => {
   // exception handling
   if (!Array.isArray(array)) {
     return;
